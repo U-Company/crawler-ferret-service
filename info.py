@@ -1,0 +1,5 @@
+name = 'crawler-parser-service'
+version = '0.11.0'
+description = 'This package implements client to ferret service for parsing'
+author = 'Urvanov Egor'
+author_email = 'hedgehogues@bk.ru'

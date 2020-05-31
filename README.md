@@ -1,3 +1,43 @@
+# Crawler ferret service
+
+Crawler project intend of to prevent interface for parsing html pages with ferret. We do it, because we don't find 
+implementation another fql/dsl language. 
+
+This repo implements python package with methods of 
+[python-clients package](https://github.com/U-Company/python-clients). Python-clients package is correct way to 
+implement client to service. We publish our client to PyPi-registry. To install them, you can do this:
+
+    pip install crawler-ferret-service
+    
+We save package with clients to our PyPi registry for crawler project.
+    
+After that, you can do this with async client:
+
+    from clients import http
+    from crawler_ferret_service import methods as crawler_ferret_service
+    
+    
+    client = http.AsyncClient('http://localhost:8080')
+    
+    m = crawler_ferret_service.Root()
+    resp, status = await client.request(m)
+    print(resp)
+    print(status)
+    
+Before request, you need to run the service:
+
+    docker run -p 8080:8080 -it montferret/worker    
+          
+If you want to use sync client, you can do this:
+
+    client = http.Client('http://localhost:8080')
+    
+    # ...
+    
+    resp, status = client.request(m)
+    
+    # ...
+
 # Worker
 
 <p align="center">
